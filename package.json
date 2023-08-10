@@ -1,0 +1,15 @@
+{
+  "name": "cryptofont",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Michal Szczepanski (michal@vane.pl)",
+  "license": "MIT",
+  "dependencies": {
+    "@fontsource/roboto": "^4.5.8",
+    "opentype.js": "^1.3.4"
+  }
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cryptofont - test</title>
+    <style>
+      @font-face {
+        font-family: Cryptofont;
+        src: url("Cryptofont-Medium.otf") format("opentype");
+      }
+      .cryptofont {
+        font-family: Cryptofont;
+      }
+    </style>
+</head>
+<body>
+  <h1 id="hello" class="cryptofont">^vppXx(X\pyx4</h1>
+  <label>Cryptofont</label>
+  <br />
+  <textarea class="cryptofont" id="txt" cols="100" rows="10"></textarea>
+  <br />
+  <label>Normal Font</label>
+  <p id="decoded"></p>
+  <br />
+  <label>Decode hello world</label>
+  <p id="encoded">^vppXx(X\pyx4</p>
+  <button id="btn">Click to decode / encode above text !</button>
+  <script>
+      (async () => {
+
+          const decoder = await (await fetch('decoder.json')).json();
+          const encoder = await (await fetch('encoder.json')).json();
+          const decoded = document.getElementById('decoded');
+          const encoded = document.getElementById('encoded');
+          const txt = document.getElementById('txt');
+          const btn = document.getElementById('btn');
+          let clicked = false;
+          btn.addEventListener('click', () => {
+            clicked ? encode(encoder) : encode(decoder);
+            clicked = !clicked;
+          });
+          txt.addEventListener('input', (e) => {
+            decoded.innerText = txt.value;
+          });  
+      })()
+
+      function encode(data) {
+        const t = encoded.innerText;
+        let v = '';
+        for(let i of t) {
+          v += data[i];
+        }
+        encoded.innerText = v;
+
+      }
+
+  </script>
+</body>
+</html>
