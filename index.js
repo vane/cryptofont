@@ -67,9 +67,9 @@ function saveFont() {
     for (let i = 0; i < buffer.length; ++i) {
         buffer[i] = view[i];
     }
-    fs.writeFileSync(`data/${fileName}`, buffer);
-    fs.writeFileSync('data/decoder.json', JSON.stringify(decoder))
-    fs.writeFileSync('data/encoder.json', JSON.stringify(alphabet))
+    fs.writeFileSync(`docs/${fileName}`, buffer);
+    fs.writeFileSync('docs/decoder.json', JSON.stringify(decoder))
+    fs.writeFileSync('docs/encoder.json', JSON.stringify(alphabet))
 }
 
 try {
